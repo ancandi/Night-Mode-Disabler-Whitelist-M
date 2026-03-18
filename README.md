@@ -1,5 +1,5 @@
 # Night Mode Disabler (Whitelist) 🌙🚫
-**A lightweight userscript designed to bypass and disable "Night Mode" or "Dark Mode" filters on specific websites.**
+**A lightweight userscript and mobile solution designed to bypass and disable "Night Mode" or "Dark Mode" filters on specific websites.**
 
 Unlike global dark mode toggles, this script targets browsers (like Via) that force-inject dark filters, ensuring your whitelisted sites maintain their original, intended colors and visibility.
 
