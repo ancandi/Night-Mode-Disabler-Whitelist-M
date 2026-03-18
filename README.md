@@ -22,7 +22,7 @@ Unlike global dark mode toggles, this script targets browsers (like Via) that fo
 * **Custom Whitelist**: Users can easily define which domains should remain in light mode within the script.
   
 ## ⚙️ Other Utility Extensions
-- You might want to try out other userscript utilities available on both Mobile/Desktop such as: [[Evade - Link Bypasser]](https://skipped.lol/)
+- You might want to try out other userscript utilities available on both Mobile/Desktop such as: [Evade - Link Bypasser](https://skipped.lol/)
   
 <br>
 
