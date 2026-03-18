@@ -8,7 +8,7 @@ Unlike global dark mode toggles, this script targets browsers (like Via) that fo
 ## 🛠️ How to Use
 * **Install**: Use a userscript manager such as Tampermonkey, Greasemonkey, or mobile equivalents like Kiwi or Via.
 
-  [Night Mode Disabler Whitelist – JavaScript](https://github.com/ancandi/Night-Mode-Disabler-Whitelist-M/blob/main/night-mode-disabler.user.js)
+  [Night Mode Disabler Whitelist – JavaScript](https://github.com/ancandi/Night-Mode-Disabler-Whitelist-M/raw/refs/heads/main/night-mode-disabler.user.js)
   
 * **Configure**: Edit the `disableNightModeOn` constant within the script to add your preferred domains.
 * **Default Whitelist**: The script is currently pre-configured for `google.com`, `youtube.com`, and `github.com`.
