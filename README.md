@@ -10,15 +10,15 @@ Unlike global dark mode toggles, this script targets browsers (like Via) that fo
 
   [Night Mode Disabler Whitelist – JavaScript](https://github.com/ancandi/Night-Mode-Disabler-Whitelist-M/raw/refs/heads/main/night-mode-disabler.user.js)
   
-* **Configure**: Edit the `disableNightModeOn` constant within the script to add your preferred domains.
-* **Default Whitelist**: The script is currently pre-configured for `google.com`, and `youtube.com`. Add sites that have a built-in dark mode.
+* **Configure**: Edit the **`disableNightModeOn`** constant within the script to add your preferred domains.
+* **Default Whitelist**: The script is currently pre-configured for **`google.com`**, and **`youtube.com`**. Add sites that have a built-in dark mode.
 
 <br>
 
 ## 🚀 Key Features
-* **Force Light Mode**: Injects a `color-scheme: light only` meta tag to signal the browser to stop darkening the UI.
+* **Force Light Mode**: Injects a **`color-scheme: light only`** meta tag to signal the browser to stop darkening the UI.
 * **Filter Neutralization**: Strips away CSS inversion filters and opacity shifts that often make images and videos look "muddy" in forced night modes.
-* **Dynamic Persistence**: Uses a `MutationObserver` to ensure the "Anti-Night Mode" styles remain active even if the page dynamically updates.
+* **Dynamic Persistence**: Uses a **`MutationObserver`** to ensure the "Anti-Night Mode" styles remain active even if the page dynamically updates.
 * **Custom Whitelist**: Users can easily define which domains should remain in light mode within the script.
   
 ## ⚙️ Other Utility Extensions
@@ -27,9 +27,9 @@ Unlike global dark mode toggles, this script targets browsers (like Via) that fo
 <br>
 
 ## ⚡ Technical Details
-* **Targeting**: The script runs at `document-start` for the fastest possible UI correction.
+* **Targeting**: The script runs at **`document-start`** for the fastest possible UI correction.
 * **Data-Lite**: Optimized to be as lightweight as possible with no external dependencies.
-* **Universal Match**: Active on all sites (`*://*/*`) but only executes logic if the domain matches your specific whitelist.
+* **Universal Match**: Active on all sites (**`*://*/*`**) but only executes logic if the domain matches your specific whitelist.
 
 <br>
 
