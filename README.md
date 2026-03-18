@@ -5,19 +5,22 @@ Unlike global dark mode toggles, this script targets browsers (like Via) that fo
 
 <br>
 
-## 🚀 Key Features
-* **Force Light Mode**: Injects a `color-scheme: light only` meta tag to signal the browser to stop darkening the UI.
-* **Filter Neutralization**: Strips away CSS inversion filters and opacity shifts that often make images and videos look "muddy" in forced night modes.
-* **Dynamic Persistence**: Uses a `MutationObserver` to ensure the "Anti-Night Mode" styles remain active even if the page dynamically updates.
-* **Custom Whitelist**: Users can easily define which domains should remain in light mode within the script.
-
-<br>
-
 ## 🛠️ How to Use
 * **Install**: Use a userscript manager such as Tampermonkey, Greasemonkey, or mobile equivalents like Kiwi or Via.
 * **Configure**: Edit the `disableNightModeOn` constant within the script to add your preferred domains.
 * **Default Whitelist**: The script is currently pre-configured for `google.com`, `youtube.com`, and `github.com`.
 
+<br>
+
+## 🚀 Key Features
+* **Force Light Mode**: Injects a `color-scheme: light only` meta tag to signal the browser to stop darkening the UI.
+* **Filter Neutralization**: Strips away CSS inversion filters and opacity shifts that often make images and videos look "muddy" in forced night modes.
+* **Dynamic Persistence**: Uses a `MutationObserver` to ensure the "Anti-Night Mode" styles remain active even if the page dynamically updates.
+* **Custom Whitelist**: Users can easily define which domains should remain in light mode within the script.
+  
+## ⚙️ Other Utility Extensions
+- You might want to try out other userscript utilities available on both Mobile/Desktop such as: [[Evade - Link Bypasser]](skipped.lol)
+  
 <br>
 
 ## ⚡ Technical Details
