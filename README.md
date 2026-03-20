@@ -33,7 +33,7 @@ Unlike global toggles, this script targets browser engines (Kiwi, Safari, Via) t
 | **Engine Focus** | Chromium / Blink | WebKit / Apple |
 | **Primary Method** | Data-Attribute Injection | System-Flag Synchronization |
 | **Filter Reset** | Standard CSS `filter` | `-webkit-filter` + Tap-Highlight |
-| **Footprint** | < 1KB (Ultra-Lean) | < 1KB (Ultra-Lean) |
+| **Footprint** | < 1KB | < 1KB |
 
 <br>
 
