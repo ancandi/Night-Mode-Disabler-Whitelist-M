@@ -6,7 +6,7 @@ Unlike global toggles, this script targets browser engines (Kiwi, Safari, Via) t
 <br>
 
 ## 📥 Installation
-**[Download for Chrome / Kiwi / Android](https://github.com/ancandi/Night-Mode-Disabler-Whitelist-M/raw/refs/heads/main/night-mode-disabler.user.js)** *(Optimized for Blink/Chromium engines)*
+**[Download for Chrome / Firefox / Android](https://github.com/ancandi/Night-Mode-Disabler-Whitelist-M/raw/refs/heads/main/night-mode-disabler.user.js)** *(Optimized for Blink/Chromium engines)*
 
 **[Download for Safari / iOS / macOS](https://github.com/ancandi/Night-Mode-Disabler-Whitelist-M/raw/refs/heads/main/night-mode-disabler-safari.user.js)** *(Optimized for WebKit & Apple-specific rendering flags)*
 
