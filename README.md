@@ -10,8 +10,8 @@ Unlike global dark mode toggles, this script targets browsers (like Via) that fo
 
   [Night Mode Disabler Whitelist – JavaScript](https://github.com/ancandi/Night-Mode-Disabler-Whitelist-M/raw/refs/heads/main/night-mode-disabler.user.js)
   
-* **Configure**: Edit the **`disableNightModeOn`** constant within the script to add your preferred domains.
-* **Default Whitelist**: The script is currently pre-configured for **`google.com`**, and **`youtube.com`**. Add sites that have a built-in dark mode.
+* **Configure**: Edit the **`@match`** meta data constants and add your preferred domains within the script.
+* **Default Whitelist**: The script is currently pre-configured for **`google.com`**, and **`youtube.com`**. Add sites that have a built-in dark mode that you can enable.
 
 <br>
 
