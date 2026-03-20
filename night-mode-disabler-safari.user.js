@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Night-Mode-Disabler-S
-// @version     2.1.5
+// @version     1.0.1
 // @run-at      document-start
 // ==/UserScript==
 
