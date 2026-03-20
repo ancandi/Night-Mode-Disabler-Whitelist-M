@@ -1,37 +1,44 @@
 # Night Mode Disabler (Whitelist) 🌙🚫
-**A lightweight userscript and mobile solution designed to bypass and disable "Night Mode" or "Dark Mode" filters on specific websites.**
+**A high-performance, data-lite solution designed to neutralize "Forced Dark Mode" on specific mobile websites. Optimized for speed, battery efficiency, and color accuracy.**
 
-Unlike global dark mode toggles, this script targets browsers (like Via) that force-inject dark filters, ensuring your whitelisted sites maintain their original, intended colors and visibility.
+Unlike global toggles, this script targets browser engines (Kiwi, Safari, Via) that force-inject aggressive dark filters, ensuring your whitelisted sites maintain their original, high-fidelity UI.
+
+<br>
+
+## 📥 Installation
+**[Download for Chrome / Kiwi / Android](https://github.com/ancandi/Night-Mode-Disabler-Whitelist-M/raw/refs/heads/main/night-mode-disabler.user.js)** *(Optimized for Blink/Chromium engines)*
+
+**[Download for Safari / iOS / macOS](https://github.com/ancandi/Night-Mode-Disabler-Whitelist-M/raw/refs/heads/main/night-mode-disabler-safari.user.js)** *(Optimized for WebKit & Apple-specific rendering flags)*
 
 <br>
 
 ## 🛠️ How to Use
-* **Install**: Use a userscript manager such as Tampermonkey, Greasemonkey, or mobile equivalents like Kiwi or Via.
-
-[Night Mode Disabler Whitelist – JavaScript](https://github.com/ancandi/Night-Mode-Disabler-Whitelist-M/raw/refs/heads/main/night-mode-disabler.user.js)
-
-[Night Mode Disabler Whitelist – Safari JavaScript](https://github.com/ancandi/Night-Mode-Disabler-Whitelist-M/raw/refs/heads/main/night-mode-disabler-safari.user.js)
-  
-* **Configure**: Edit the **`@match`** metadata constants and add your preferred domains within the script.
-* **Default Whitelist**: The script is currently pre-configured for **`google.com`**, and **`youtube.com`**. Add sites that have a built-in dark mode that you can enable.
+* **Install**: Add the script to your preferred manager (Kiwi, Userscripts for Safari, or Tampermonkey).
+* **Automatic Detection**: The script identifies your current domain; if it matches the internal whitelist, all forced filters are instantly purged.
+* **Default Whitelist**: Pre-configured for **`google.com`** and **`youtube.com`**. These sites have native dark modes that work better than browser-forced filters.
 
 <br>
 
 ## 🚀 Key Features
-* **Force Light Mode**: Injects a **`color-scheme: light only`** meta tag to signal the browser to stop darkening the UI.
-* **Filter Neutralization**: Strips away CSS inversion filters and opacity shifts that often make images and videos look "muddy" in forced night modes.
-* **Dynamic Persistence**: Uses a **`MutationObserver`** to ensure the "Anti-Night Mode" styles remain active even if the page dynamically updates.
-* **Custom Whitelist**: Users can easily define which domains should remain in light mode within the script.
-  
-## ⚙️ Other Utility Extensions
-- You might want to try out other userscript utilities available on both Mobile/Desktop such as: [Evade - Link Bypasser](https://skipped.lol/)
-  
+* **Hardware-Level Bypass**: Injects **`color-scheme: light !important`** to signal the GPU to stop darkening system-level UI elements.
+* **WebKit Neutralization (Safari Only)**: Uses specific **`-webkit-filter`** resets to kill Safari's "Smart Invert" and muddy overlays.
+* **Zero-Latency Injection**: Executes at **`document-start`** to eliminate the "flash of dark" (FOD) during page loads.
+* **Universal Match Architecture**: Active on all sites but utilizes an ultra-lean Regex check to ensure zero CPU overhead on non-whitelisted domains.
+
 <br>
 
-## ⚡ Technical Details
-* **Targeting**: The script runs at **`document-start`** for the fastest possible UI correction.
-* **Data-Lite**: Optimized to be as lightweight as possible with no external dependencies.
-* **Universal Match**: Active on all sites (**`*://*/*`**) but only executes logic if the domain matches your specific whitelist.
+## ⚡ Technical Comparison
+| Feature | Chrome/Android Build | Safari/iOS Build |
+| :--- | :--- | :--- |
+| **Engine Focus** | Chromium / Blink | WebKit / Apple |
+| **Primary Method** | Data-Attribute Injection | System-Flag Synchronization |
+| **Filter Reset** | Standard CSS `filter` | `-webkit-filter` + Tap-Highlight |
+| **Footprint** | < 1KB (Ultra-Lean) | < 1KB (Ultra-Lean) |
+
+<br>
+
+## ⚙️ Other Utility Extensions
+- Looking for more? Try out other userscript utilities: [Evade - Link Bypasser](https://skipped.lol/)
 
 <br>
 
