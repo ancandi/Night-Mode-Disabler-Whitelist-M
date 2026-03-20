@@ -40,6 +40,10 @@ Unlike global toggles, this script targets browser engines (Kiwi, Safari, Via) t
 ## ⚙️ Other Utility Extensions
 - Looking for more? Try out other userscript utilities: [Evade - Link Bypasser](https://skipped.lol/)
 
+`[System Overview: Available Consumer-Based Active Mobile Userscripts]`
+
+<img width="200" height="500" alt="image" src="https://github.com/user-attachments/assets/ea1f8205-4a4a-49f3-9eae-7b6e3d35873f" />
+
 <br>
 
 ## 📜 Copyright
