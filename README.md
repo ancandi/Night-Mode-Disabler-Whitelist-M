@@ -13,7 +13,7 @@ Unlike global toggles, this script targets browser engines (Kiwi, Safari, Via) t
 <br>
 
 ## 🛠️ How to Use
-* **Install**: Add the script to your preferred manager (Kiwi, Userscripts for Safari, or Tampermonkey).
+* **Install**: Add the script to your preferred manager (Firefox, Userscripts for Safari, or Tampermonkey).
 * **Automatic Detection**: The script identifies your current domain; if it matches the internal whitelist, all forced filters are instantly purged.
 * **Default Whitelist**: Pre-configured for **`google.com`** and **`youtube.com`**. These sites have native dark modes that work better than browser-forced filters.
 
