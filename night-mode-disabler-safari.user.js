@@ -10,11 +10,11 @@
     if (!['google.com','youtube.com','github.com'].some(h => location.host.includes(h))) return;
 
     const s = d.createElement('style');
-    s.textContent = ':root,html,body{filter:none!important;-webkit-filter:none!important;background:#fff!important;color:#000!important;color-scheme:light only!important;}img,video{filter:none!important;opacity:1!important;}';
+    s.id = 'a-n';
+    s.textContent = ':root,html,body,* {filter:none!important;-webkit-filter:none!important;color-scheme:light only!important;} html,body{background:#fff!important;color:#000!important;} img,video{opacity:1!important;}';
     
     (function l() {
-        if (!d.getElementById('a-n')) { s.id='a-n'; (d.head||d.documentElement).append(s); }
-        d.documentElement.removeAttribute('dark');
+        if (!d.getElementById(s.id)) (d.head || d.documentElement).append(s);
         requestAnimationFrame(l);
     })();
 })(document);

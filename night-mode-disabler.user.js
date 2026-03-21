@@ -5,34 +5,29 @@
 // @run-at document-start
 // ==/UserScript==
 
-(function(d, w) {
+(function(d) {
     'use strict';
-    const domains = ['google.com', 'youtube.com', 'github.com'];
-    if (!domains.some(h => location.hostname.includes(h))) return;
+    if (!['google.com', 'youtube.com', 'github.com'].some(h => location.hostname.includes(h))) return;
 
     const s = d.createElement('style');
-    s.id = "anti-night";
+    s.id = "anti-night-mode";
     s.textContent = `
-        :root, html, body { 
+        :root, html, body, * { 
             filter: none !important; 
             -webkit-filter: none !important; 
-            background: #fff !important; 
-            color: #000 !important; 
-            color-scheme: light only !important; 
+            color-scheme: light only !important;
         }
-        img, video, iframe, canvas { 
-            filter: none !important; 
-            -webkit-filter: none !important; 
-            opacity: 1 !important; 
-        }
+        html, body { background-color: white !important; color: black !important; }
+        img, video, iframe, canvas { opacity: 1 !important; }
     `;
 
     const inject = () => {
-        if (d.head && !d.getElementById('anti-night')) d.head.append(s);
-        if (d.documentElement.hasAttribute('dark')) d.documentElement.removeAttribute('dark');
+        if (d.head && !d.getElementById(s.id)) {
+            const m = d.createElement('meta'); m.name = "color-scheme"; m.content = "light only";
+            d.head.append(m, s);
+        }
     };
 
-    const mo = new MutationObserver(inject);
-    mo.observe(d.documentElement, { childList: true, subtree: true, attributes: true });
+    new MutationObserver(inject).observe(d.documentElement, { childList: true, subtree: true });
     inject();
-})(document, window);
+})(document);
