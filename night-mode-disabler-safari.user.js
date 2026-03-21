@@ -1,55 +1,45 @@
 // ==UserScript==
 // @name Night Mode Disabler (Safari)
-// @namespace http://tampermonkey.net/
-// @version 1.0.1
+// @version 1.0.2 beta
 // @match *://*/*
 // @run-at document-start
 // @grant none
 // ==/UserScript==
 
-(function() {
+(function(d) {
     'use strict';
 
-    const disableNightModeOn = [
-        'google.com',
-        'youtube.com',
-        'github.com'
-    ];
+    const hosts = ['google.com', 'youtube.com', 'github.com'];
+    if (!hosts.some(h => location.hostname.includes(h))) return;
 
-    const currentHost = window.location.hostname;
-    const shouldDisable = disableNightModeOn.some(domain => currentHost.includes(domain));
+    const s = d.createElement('style');
+    s.id = "anti-night-mode";
+    s.textContent = `
+        html, body {
+            filter: none !important;
+            -webkit-filter: none !important;
+            background-color: white !important;
+            color: black !important;
+        }
+        img, video, iframe, canvas {
+            filter: none !important;
+            -webkit-filter: none !important;
+            opacity: 1 !important;
+        }
+        :root { color-scheme: light only !important; }
+    `;
 
-    if (shouldDisable) {
-        const meta = document.createElement('meta');
-        meta.name = "color-scheme";
-        meta.content = "light only";
+    const inject = () => {
+        const root = d.head || d.documentElement;
+        if (root && !d.getElementById(s.id)) {
+            const m = d.createElement('meta');
+            m.name = "color-scheme"; m.content = "light only";
+            root.append(m, s);
+        }
+    };
 
-        const style = document.createElement('style');
-        style.id = "anti-night-mode";
-        style.innerHTML = `
-            html, body {
-                filter: none !important;
-                -webkit-filter: none !important;
-                background-color: white !important;
-                color: black !important;
-            }
-            img, video, iframe, canvas {
-                filter: none !important;
-                -webkit-filter: none !important;
-                opacity: 1 !important;
-            }
-            :root {
-                color-scheme: light only !important;
-            }
-        `;
-        
-        (function loop() {
-            const target = document.head || document.documentElement;
-            if (target && !document.getElementById('anti-night-mode')) {
-                target.appendChild(meta);
-                target.appendChild(style);
-            }
-            window.requestAnimationFrame(loop);
-        })();
-    }
-})();
+    (function loop() {
+        inject();
+        requestAnimationFrame(loop);
+    })();
+})(document);
