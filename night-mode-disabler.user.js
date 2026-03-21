@@ -7,7 +7,7 @@
 
 (function(d, l) {
     'use strict';
-    if (!['google.com','youtube.com','github.com'].some(h => l.host.includes(h))) return;
+    if (!['google.com','youtube.com','github.com/*'].some(h => l.host.includes(h))) return;
 
     const s = d.createElement('style');
     s.id = "a-n";
