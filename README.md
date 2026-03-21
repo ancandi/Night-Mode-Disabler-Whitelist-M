@@ -28,20 +28,26 @@ Unlike global toggles, this script targets browser engines (Kiwi, Safari, Via) t
 <br>
 
 ## 🔍 Looking for more?
+### 🛠️ The Userscript Directory
+> **Optimization Level:** Featherweight | **Last Updated:** 2026
 
-**YouTube Mobile URL Shield AB+
-Video Bitrate O/BA
-Night Mode Disabler (Whitelist)
-Evade by skipped.lol
-Login reminder popup remover (developement ceased)
-AdGuard Extra
-AdsBypasser
-FMHY Base64 Auto Decoder
-Bypass All Shortlinks
-I don't care about cookies**
+#### 🚀 Primary Utilities (ancandi)
+* **YouTube Mobile URL Shield AB+** — UI-driven unmute & ad-nuke (v3.0.7).
+* **Video Bitrate O/BA** — Adaptive codec & bitrate overdrive (v1.2.7).
+* **Night Mode Disabler (Whitelist)** — Contrast control for mobile UI.
+* **YouTube Shield (Zero UI)** — Invisible automation engine (v4.1.0).
 
-- Major Public Userscripts Listed above. Try out other public userscript utilities: **[Evade - Link Bypasser](https://skipped.lol/)**
+#### 🔗 External Resources
+* ⚡ **Evade** — via **[Evade - Link Bypasser](https://skipped.lol/)**
+* **AdGuard Extra** — Advanced anti-adblock bypass.
+* **AdsBypasser** — Countdown and redirect skip logic.
+* **FMHY Base64 Auto Decoder** — Automatic string decoding for piracy/sharing.
+* **Bypass All Shortlinks** — Universal link-shortener skip.
+* **I don't care about cookies** — Automated cookie consent handling.
 
+#### ⚠️ Maintenance & Status
+* **Login reminder popup remover** — `[DEVELOPMENT CEASED]`
+---
 ## AND1 UserScripts — This is the complete collection of high-performance, streamlined userscripts designed to reclaim control over mobile web experiences. ⬇
 > Otherwise, check out the full source code and technical documentation at **[github.com/ancandi](https://github.com/ancandi)**.
 
@@ -79,6 +85,7 @@ Prevents aggressive "Forced Dark Mode" on mobile browsers from breaking specific
     * [Safari Build (WebKit)](https://github.com/ancandi/Night-Mode-Disabler-Whitelist-M/raw/main/night-mode-disabler-safari.user.js)
       
 ---
+
 <br>
 
 ## 📜 Copyright
