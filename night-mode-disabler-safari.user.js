@@ -11,7 +11,7 @@
 
     const s = d.createElement('style');
     s.id = 'a-n';
-    s.textContent = ':root,html,body,* {filter:none!important;-webkit-filter:none!important;color-scheme:light only!important;} html,body{background:#fff!important;color:#000!important;} img,video,iframe,canvas{opacity:1!important;}';
+    s.textContent = 'html,body{filter:none!important;-webkit-filter:none!important;background:#fff!important;color:#000!important;} img,video,iframe,canvas{filter:none!important;-webkit-filter:none!important;opacity:1!important;} :root{color-scheme:light only!important;}';
     
     (function l() {
         if (!d.getElementById(s.id)) {
