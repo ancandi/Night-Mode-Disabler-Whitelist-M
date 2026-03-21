@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name Night Mode Disabler [Safari-Lean]
-// @version 1.1.0-S
+// @name Night Mode Disabler [Safari]
+// @version 1.0.1-S
 // @match *://*/*
 // @run-at document-start
 // ==/UserScript==
