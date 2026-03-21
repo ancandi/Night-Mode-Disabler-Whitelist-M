@@ -7,16 +7,13 @@
 
 (function(d) {
     'use strict';
-    if (!['google.com', 'youtube.com', 'github.com'].some(h => location.hostname.includes(h))) return;
+    const hosts = ['google.com', 'youtube.com', 'github.com'];
+    if (!hosts.some(h => location.hostname.includes(h))) return;
 
     const s = d.createElement('style');
     s.id = "anti-night-mode";
     s.textContent = `
-        :root, html, body, * { 
-            filter: none !important; 
-            -webkit-filter: none !important; 
-            color-scheme: light only !important;
-        }
+        :root, html, body, * { filter: none !important; -webkit-filter: none !important; color-scheme: light only !important; }
         html, body { background-color: white !important; color: black !important; }
         img, video, iframe, canvas { opacity: 1 !important; }
     `;
