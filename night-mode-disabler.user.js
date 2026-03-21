@@ -3,17 +3,18 @@
 // @version 1.0.2 beta
 // @match *://*/*
 // @run-at document-start
+// @grant none
 // ==/UserScript==
 
 (function(d) {
     'use strict';
-    const hosts = ['google.com', 'youtube.com', 'github.com/*'];
-    if (!hosts.some(h => location.href.includes(h.replace('/*','')))) return;
+    const hosts = ['google.com', 'youtube.com', 'github.com'];
+    if (!hosts.some(h => location.hostname.includes(h))) return;
 
     const s = d.createElement('style');
     s.id = "anti-night-mode";
     s.textContent = `
-        html, body {
+        :root, html, body {
             filter: none !important;
             -webkit-filter: none !important;
             background-color: white !important;

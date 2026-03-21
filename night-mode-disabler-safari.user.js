@@ -7,18 +7,15 @@
 
 (function(d) {
     'use strict';
-    if (!['google.com','youtube.com','github.com/*'].some(h => location.href.includes(h.replace('/*','')))) return;
-
-    const s = d.createElement('style');
-    s.id = 'a-n';
-    s.textContent = 'html,body{filter:none!important;-webkit-filter:none!important;background-color:white!important;color:black!important} img,video,iframe,canvas{filter:none!important;-webkit-filter:none!important;opacity:1!important} :root{color-scheme:light only!important}';
-
-    (function loop(){
-        const root = d.head || d.documentElement;
-        if (root && !d.getElementById(s.id)) {
-            const m = d.createElement('meta'); m.name="color-scheme"; m.content="light only";
-            root.append(m, s);
+    if (!['google.com','youtube.com','github.com'].some(h => location.host.includes(h))) return;
+    const s = d.createElement('style'); s.id = 'a-n';
+    s.textContent = ':root,html,body{filter:none!important;-webkit-filter:none!important;background-color:white!important;color:black!important} img,video,iframe,canvas{filter:none!important;-webkit-filter:none!important;opacity:1!important} :root{color-scheme:light only!important}';
+    (function l(){
+        const r = d.head || d.documentElement;
+        if (r && !d.getElementById(s.id)) {
+            const m=d.createElement('meta'); m.name="color-scheme"; m.content="light only";
+            r.append(m, s);
         }
-        requestAnimationFrame(loop);
+        requestAnimationFrame(l);
     })();
 })(document);
