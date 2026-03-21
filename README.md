@@ -28,12 +28,13 @@ Unlike global toggles, this script targets browser engines (Kiwi, Safari, Via) t
 <br>
 
 ## ⚡ Technical Comparison
-| Feature | Chrome/Android Build | Safari/iOS Build |
-| :--- | :--- | :--- |
-| **Engine Focus** | Chromium / Blink | WebKit / Apple |
-| **Primary Method** | Data-Attribute Injection | System-Flag Synchronization |
-| **Filter Reset** | Standard CSS `filter` | `-webkit-filter` + Tap-Highlight |
-| **Footprint** | < 1KB | < 1KB |
+| Feature | Generic YouTube (Mobile) | Generic Video Player | Overdrive Optimized |
+| :--- | :--- | :--- | :--- |
+| **Bitrate Cap** | Aggressive (App-Level) | Browser-Level Throttle | **Bypassed (Desktop Logic)** |
+| **Codec Priority** | Low-Bandwidth AVC1 | System Default | **High-Fidelity VP9/AV1** |
+| **Buffering** | Static/Predictive | Reactive (Late) | **rAF Real-time Monitoring** |
+| **Visual Clarity** | Muddy (Compression) | Standard | **Crisp (Zero-Artifact)** |
+| **Data Logic** | Throttled on Cellular | Unoptimized | **Adaptive Throughput** |
 
 <br>
 
