@@ -33,9 +33,9 @@ Unlike global toggles, this script targets browser engines (Kiwi, Safari, Via) t
 
 #### 🚀 Primary Utilities (ancandi)
 * **YouTube Mobile URL Shield AB+** — UI-driven unmute & ad-nuke (v3.0.7).
-* **Video Bitrate O/BA** — Adaptive codec & bitrate overdrive (v1.2.7).
+* **Video Bitrate O/BA** — Adaptive codec & bitrate overdrive (v1.0.0).
 * **Night Mode Disabler (Whitelist)** — Contrast control for mobile UI.
-* **YouTube Shield (Zero UI)** — Invisible automation engine (v4.1.0).
+* **YouTube Shield (Zero UI)** — Invisible automation engine (v4.0.1).
 
 #### 🔗 External Resources
 * ⚡ **Evade** — via **[Evade - Link Bypasser](https://skipped.lol/)**
