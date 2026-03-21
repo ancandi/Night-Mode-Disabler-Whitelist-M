@@ -7,18 +7,18 @@
 
 (function(d) {
     'use strict';
-    if (!['google.com','youtube.com','github.com'].some(h => location.hostname.includes(h))) return;
+    if (!['google.com','youtube.com','github.com/*'].some(h => location.href.includes(h.replace('/*','')))) return;
 
     const s = d.createElement('style');
     s.id = 'a-n';
     s.textContent = 'html,body{filter:none!important;-webkit-filter:none!important;background-color:white!important;color:black!important} img,video,iframe,canvas{filter:none!important;-webkit-filter:none!important;opacity:1!important} :root{color-scheme:light only!important}';
 
-    (function l(){
-        const h = d.head || d.documentElement;
-        if (h && !d.getElementById(s.id)) {
+    (function loop(){
+        const root = d.head || d.documentElement;
+        if (root && !d.getElementById(s.id)) {
             const m = d.createElement('meta'); m.name="color-scheme"; m.content="light only";
-            h.append(m, s);
+            root.append(m, s);
         }
-        requestAnimationFrame(l);
+        requestAnimationFrame(loop);
     })();
 })(document);

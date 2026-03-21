@@ -7,32 +7,32 @@
 
 (function(d) {
     'use strict';
-    const hosts = ['google.com', 'youtube.com', 'github.com'];
-    if (!hosts.some(h => location.hostname.includes(h))) return;
+    const hosts = ['google.com', 'youtube.com', 'github.com/*'];
+    if (!hosts.some(h => location.href.includes(h.replace('/*','')))) return;
 
     const s = d.createElement('style');
-    s.id = "a-n";
+    s.id = "anti-night-mode";
     s.textContent = `
-        html, body { 
-            filter: none !important; 
-            -webkit-filter: none !important; 
-            background-color: white !important; 
-            color: black !important; 
+        html, body {
+            filter: none !important;
+            -webkit-filter: none !important;
+            background-color: white !important;
+            color: black !important;
         }
-        img, video, iframe, canvas { 
-            filter: none !important; 
-            -webkit-filter: none !important; 
-            opacity: 1 !important; 
+        img, video, iframe, canvas {
+            filter: none !important;
+            -webkit-filter: none !important;
+            opacity: 1 !important;
         }
         :root { color-scheme: light only !important; }
     `;
 
     const inject = () => {
-        const h = d.head || d.documentElement;
-        if (h && !d.getElementById(s.id)) {
+        const root = d.head || d.documentElement;
+        if (root && !d.getElementById(s.id)) {
             const m = d.createElement('meta');
             m.name = "color-scheme"; m.content = "light only";
-            h.append(m, s);
+            root.append(m, s);
         }
     };
 
