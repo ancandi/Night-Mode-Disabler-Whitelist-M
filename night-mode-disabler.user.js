@@ -1,42 +1,57 @@
 // ==UserScript==
-// @name Night Mode Disabler (Whitelist)
-// @version 1.0.2 beta
-// @match *://*/*
-// @run-at document-start
-// @grant none
+// @name          Smooth Night Mode (No UI)
+// @version       2.0.0
+// @match         *://*/*
+// @run-at        document-start
+// @grant         none
 // ==/UserScript==
 
-(function(d) {
+(function(d, w) {
     'use strict';
+
+    // --- INPUT YOUR SITES HERE ---
     const hosts = ['google.com', 'youtube.com', 'github.com'];
-    if (!hosts.some(h => location.hostname.includes(h))) return;
+    const isWhitelisted = hosts.some(h => location.hostname.includes(h));
+    if (!isWhitelisted) return;
+
+    const CFG = { inv: 90, med: 100, delay: 500 };
+    let last = 0;
 
     const s = d.createElement('style');
-    s.id = "anti-night-mode";
+    s.id = "smooth-night-logic";
     s.textContent = `
-        :root, html, body {
-            filter: none !important;
-            -webkit-filter: none !important;
-            background-color: white !important;
-            color: black !important;
+        html.night-mode {
+            -webkit-filter: invert(${CFG.inv}%) !important;
+            filter: invert(${CFG.inv}%) !important;
+            background: #fff !important;
         }
-        img, video, iframe, canvas {
-            filter: none !important;
-            -webkit-filter: none !important;
-            opacity: 1 !important;
+        html.night-mode img, 
+        html.night-mode video, 
+        html.night-mode iframe, 
+        html.night-mode canvas, 
+        html.night-mode svg {
+            -webkit-filter: invert(${CFG.med}%) !important;
+            filter: invert(${CFG.med}%) !important;
         }
-        :root { color-scheme: light only !important; }
     `;
 
-    const inject = () => {
-        const root = d.head || d.documentElement;
-        if (root && !d.getElementById(s.id)) {
-            const m = d.createElement('meta');
-            m.name = "color-scheme"; m.content = "light only";
-            root.append(m, s);
-        }
+    const init = () => {
+        const root = d.documentElement;
+        if (!d.getElementById(s.id)) root.appendChild(s);
+        if (w.localStorage.nightMode === "true") root.classList.add('night-mode');
     };
 
-    new MutationObserver(inject).observe(d.documentElement, { childList: true, subtree: true });
-    inject();
-})(document);
+    d.addEventListener('keydown', e => {
+        if (e.key !== "Escape") return;
+        const now = Date.now();
+        if (now - last < CFG.delay) {
+            const root = d.documentElement;
+            const isNight = root.classList.toggle('night-mode');
+            w.localStorage.nightMode = isNight;
+        }
+        last = now;
+    });
+
+    init();
+    new MutationObserver(init).observe(d.documentElement, { childList: true });
+})(document, window);
