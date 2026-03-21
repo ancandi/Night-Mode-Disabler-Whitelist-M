@@ -29,7 +29,16 @@ Unlike global toggles, this script targets browser engines (Kiwi, Safari, Via) t
 
 ## 🔍 Looking for more?
 
-<img width="200" height="500" alt="image" src="https://github.com/user-attachments/assets/ea1f8205-4a4a-49f3-9eae-7b6e3d35873f" />
+**YouTube Mobile URL Shield AB+
+Video Bitrate O/BA
+Night Mode Disabler (Whitelist)
+Evade by skipped.lol
+Login reminder popup remover (developement ceased)
+AdGuard Extra
+AdsBypasser
+FMHY Base64 Auto Decoder
+Bypass All Shortlinks
+I don't care about cookies**
 
 - Major Public Userscripts Listed above. Try out other public userscript utilities: **[Evade - Link Bypasser](https://skipped.lol/)**
 
