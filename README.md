@@ -10,6 +10,8 @@ Unlike global toggles, this script targets browser engines (Kiwi, Safari, Via) t
 
 **[Download for Safari / iOS / macOS](https://github.com/ancandi/Night-Mode-Disabler-Whitelist-M/raw/refs/heads/main/night-mode-disabler-safari.user.js)** *(Optimized for WebKit & Apple-specific rendering flags)*
 
+>Note: No tests have been made for the Safari version 1.0.1.
+
 <br>
 
 ## 🛠️ How to Use
