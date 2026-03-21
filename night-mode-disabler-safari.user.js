@@ -1,45 +1,23 @@
 // ==UserScript==
-// @name Night Mode Disabler (Safari)
-// @version 1.0.2 beta
-// @match *://*/*
-// @run-at document-start
-// @grant none
+// @name        Night-Mode-Disabler-S
+// @version     1.0.1
+// @run-at      document-start
 // ==/UserScript==
 
-(function(d) {
+(function() {
     'use strict';
+    if (!/youtube\.com|google\.com/.test(location.hostname)) return;
 
-    const hosts = ['google.com', 'youtube.com', 'github.com'];
-    if (!hosts.some(h => location.hostname.includes(h))) return;
+    const d = document.documentElement,
+          s = document.createElement('style');
 
-    const s = d.createElement('style');
-    s.id = "anti-night-mode";
-    s.textContent = `
-        html, body {
-            filter: none !important;
-            -webkit-filter: none !important;
-            background-color: white !important;
-            color: black !important;
-        }
-        img, video, iframe, canvas {
-            filter: none !important;
-            -webkit-filter: none !important;
-            opacity: 1 !important;
-        }
-        :root { color-scheme: light only !important; }
-    `;
+    s.textContent = ':root,html,body{background:#fff!important;color-scheme:light!important;filter:none!important;-webkit-filter:none!important}*{filter:none!important;-webkit-filter:none!important}';
 
-    const inject = () => {
-        const root = d.head || d.documentElement;
-        if (root && !d.getElementById(s.id)) {
-            const m = d.createElement('meta');
-            m.name = "color-scheme"; m.content = "light only";
-            root.append(m, s);
-        }
+    const f = () => {
+        if (!d.contains(s)) d.append(s);
+        d.setAttribute('data-apple-color-scheme', 'light');
     };
 
-    (function loop() {
-        inject();
-        requestAnimationFrame(loop);
-    })();
-})(document);
+    f();
+    d.addEventListener('DOMContentLoaded', f);
+})();
