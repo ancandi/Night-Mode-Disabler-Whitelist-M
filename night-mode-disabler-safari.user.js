@@ -1,41 +1,20 @@
 // ==UserScript==
-// @name Night Mode Disabler [Safari Elite]
-// @version 1.0.0-S
+// @name Night Mode Disabler S
+// @version 1.0.1-S
 // @match *://*/*
 // @run-at document-start
 // ==/UserScript==
 
 (function(d) {
     'use strict';
-    const hosts = ['google.com', 'youtube.com', 'github.com'];
-    if (!hosts.some(h => location.hostname.includes(h))) return;
-
-    const s = d.createElement('style');
-    s.id = "anti-night-mode";
-    s.innerHTML = `
-        html, body {
-            filter: none !important;
-            -webkit-filter: none !important;
-            background-color: white !important;
-            color: black !important;
-        }
-        img, video, iframe, canvas {
-            filter: none !important;
-            -webkit-filter: none !important;
-            opacity: 1 !important;
-        }
-        :root {
-            color-scheme: light only !important;
-        }
-    `;
-
-    (function loop() {
+    if (!['google.com','youtube.com','github.com'].some(h => location.host.includes(h))) return;
+    const s = d.createElement('style'); s.id = 'a-n';
+    s.innerHTML = 'html,body{filter:none!important;-webkit-filter:none!important;background:#fff!important;color:#000!important}img,video,iframe,canvas{filter:none!important;-webkit-filter:none!important;opacity:1!important}:root{color-scheme:light only!important}';
+    (function l(){
         if (!d.getElementById(s.id)) {
-            const m = d.createElement('meta');
-            m.name = "color-scheme"; 
-            m.content = "light only";
-            (d.head || d.documentElement).append(m, s);
+            const m=d.createElement('meta'); m.name="color-scheme"; m.content="light only";
+            (d.head||d.documentElement).append(m,s);
         }
-        requestAnimationFrame(loop);
+        requestAnimationFrame(l);
     })();
 })(document);
