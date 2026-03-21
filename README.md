@@ -10,7 +10,7 @@ Unlike global toggles, this script targets browser engines (Kiwi, Safari, Via) t
 
 **[Download for Safari / iOS / macOS](https://github.com/ancandi/Night-Mode-Disabler-Whitelist-M/raw/refs/heads/main/night-mode-disabler-safari.user.js)** *(Optimized for WebKit & Apple-specific rendering flags)*
 
->Note: No tests have been made for the Safari version 1.0.1.
+>Note: No tests have been made for the Safari version 1.0.1. 
 
 <br>
 
@@ -18,7 +18,8 @@ Unlike global toggles, this script targets browser engines (Kiwi, Safari, Via) t
 * **Install**: Add the script to your preferred manager (Firefox, Userscripts for Safari, or Tampermonkey).
 * **Automatic Detection**: The script identifies your current domain; if it matches the internal whitelist, all forced filters are instantly purged.
 * **Default Whitelist**: Pre-configured for **`google.com`** and **`youtube.com`**. These sites have native dark modes that work better than browser-forced filters.
-
+>Note: You may have to edit a domain to have a /*, such as `google.com/*` for sites to be recognized by mobile browsers.
+>
 <br>
 
 ## 🚀 Key Features
