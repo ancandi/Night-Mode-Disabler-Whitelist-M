@@ -33,6 +33,7 @@ Unlike global toggles, this script targets browser engines (Kiwi, Safari, Via) t
 > Otherwise, check out the full source code and technical documentation at **[github.com/ancandi](https://github.com/ancandi)**.
 
 <br>
+
 ## 🔍 Looking for more?
 ### 🛠️ The Userscript Directory
 > **Optimization Level:** Featherweight | **Last Updated:** 2026
