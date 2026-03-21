@@ -1,21 +1,55 @@
 // ==UserScript==
-// @name Night Mode Disabler (Whitelist)
-// @version 1.0.2-S beta
+// @name Night Mode Disabler (Safari)
+// @namespace http://tampermonkey.net/
+// @version 1.0.1
 // @match *://*/*
 // @run-at document-start
+// @grant none
 // ==/UserScript==
 
-(function(d) {
+(function() {
     'use strict';
-    if (!['google.com','youtube.com','github.com'].some(h => location.host.includes(h))) return;
-    const s = d.createElement('style'); s.id = 'a-n';
-    s.textContent = ':root,html,body{filter:none!important;-webkit-filter:none!important;background-color:white!important;color:black!important} img,video,iframe,canvas{filter:none!important;-webkit-filter:none!important;opacity:1!important} :root{color-scheme:light only!important}';
-    (function l(){
-        const r = d.head || d.documentElement;
-        if (r && !d.getElementById(s.id)) {
-            const m=d.createElement('meta'); m.name="color-scheme"; m.content="light only";
-            r.append(m, s);
-        }
-        requestAnimationFrame(l);
-    })();
-})(document);
+
+    const disableNightModeOn = [
+        'google.com',
+        'youtube.com',
+        'github.com'
+    ];
+
+    const currentHost = window.location.hostname;
+    const shouldDisable = disableNightModeOn.some(domain => currentHost.includes(domain));
+
+    if (shouldDisable) {
+        const meta = document.createElement('meta');
+        meta.name = "color-scheme";
+        meta.content = "light only";
+
+        const style = document.createElement('style');
+        style.id = "anti-night-mode";
+        style.innerHTML = `
+            html, body {
+                filter: none !important;
+                -webkit-filter: none !important;
+                background-color: white !important;
+                color: black !important;
+            }
+            img, video, iframe, canvas {
+                filter: none !important;
+                -webkit-filter: none !important;
+                opacity: 1 !important;
+            }
+            :root {
+                color-scheme: light only !important;
+            }
+        `;
+        
+        (function loop() {
+            const target = document.head || document.documentElement;
+            if (target && !document.getElementById('anti-night-mode')) {
+                target.appendChild(meta);
+                target.appendChild(style);
+            }
+            window.requestAnimationFrame(loop);
+        })();
+    }
+})();

@@ -1,57 +1,59 @@
 // ==UserScript==
-// @name          Smooth Night Mode (No UI)
-// @version       2.0.0
-// @match         *://*/*
-// @run-at        document-start
-// @grant         none
+// @name Night Mode Disabler (Whitelist)
+// @namespace http://tampermonkey.net/
+// @version 1.0.1
+// @match *://*/*
+// @run-at document-start
+// @grant none
 // ==/UserScript==
 
-(function(d, w) {
+(function() {
     'use strict';
 
-    // --- INPUT YOUR SITES HERE ---
-    const hosts = ['google.com', 'youtube.com', 'github.com'];
-    const isWhitelisted = hosts.some(h => location.hostname.includes(h));
-    if (!isWhitelisted) return;
+    const disableNightModeOn = [
+        'google.com',
+        'youtube.com',
+        'github.com'
+    ];
 
-    const CFG = { inv: 90, med: 100, delay: 500 };
-    let last = 0;
+    const currentHost = window.location.hostname;
+    const shouldDisable = disableNightModeOn.some(domain => currentHost.includes(domain));
 
-    const s = d.createElement('style');
-    s.id = "smooth-night-logic";
-    s.textContent = `
-        html.night-mode {
-            -webkit-filter: invert(${CFG.inv}%) !important;
-            filter: invert(${CFG.inv}%) !important;
-            background: #fff !important;
+    if (shouldDisable) {
+        const meta = document.createElement('meta');
+        meta.name = "color-scheme";
+        meta.content = "light only";
+        document.head.appendChild(meta);
+
+        const style = document.createElement('style');
+        style.id = "anti-night-mode";
+        style.innerHTML = `
+            html, body {
+                filter: none !important;
+                -webkit-filter: none !important;
+                background-color: white !important;
+                color: black !important;
+            }
+            img, video, iframe, canvas {
+                filter: none !important;
+                -webkit-filter: none !important;
+                opacity: 1 !important;
+            }
+            :root {
+                color-scheme: light only !important;
+            }
+        `;
+        
+        const observer = new MutationObserver(() => {
+            if (document.head && !document.getElementById('anti-night-mode')) {
+                document.head.appendChild(style);
+            }
+        });
+
+        observer.observe(document.documentElement, { childList: true, subtree: true });
+        
+        if (document.head) {
+            document.head.appendChild(style);
         }
-        html.night-mode img, 
-        html.night-mode video, 
-        html.night-mode iframe, 
-        html.night-mode canvas, 
-        html.night-mode svg {
-            -webkit-filter: invert(${CFG.med}%) !important;
-            filter: invert(${CFG.med}%) !important;
-        }
-    `;
-
-    const init = () => {
-        const root = d.documentElement;
-        if (!d.getElementById(s.id)) root.appendChild(s);
-        if (w.localStorage.nightMode === "true") root.classList.add('night-mode');
-    };
-
-    d.addEventListener('keydown', e => {
-        if (e.key !== "Escape") return;
-        const now = Date.now();
-        if (now - last < CFG.delay) {
-            const root = d.documentElement;
-            const isNight = root.classList.toggle('night-mode');
-            w.localStorage.nightMode = isNight;
-        }
-        last = now;
-    });
-
-    init();
-    new MutationObserver(init).observe(d.documentElement, { childList: true });
-})(document, window);
+    }
+})();
