@@ -3,20 +3,16 @@
 // @version 1.0.1
 // @match *://*/*
 // @run-at document-start
-// @grant none
 // ==/UserScript==
 
 (function() {
     'use strict';
-    const disableNightModeOn = ['google.com', 'youtube.com', 'github.com/*'];
-    const currentHost = window.location.hostname;
-    const shouldDisable = disableNightModeOn.some(domain => currentHost.includes(domain));
+    const hosts = ['google.com', 'youtube.com', 'github.com/*'];
+    const should = hosts.some(h => window.location.hostname.includes(h));
 
-    if (shouldDisable) {
+    if (should) {
         const meta = document.createElement('meta');
-        meta.name = "color-scheme";
-        meta.content = "light only";
-        document.head.appendChild(meta);
+        meta.name = "color-scheme"; meta.content = "light only";
 
         const style = document.createElement('style');
         style.id = "anti-night-mode";
@@ -24,13 +20,15 @@
                            img, video, iframe, canvas { filter: none !important; -webkit-filter: none !important; opacity: 1 !important; } 
                            :root { color-scheme: light only !important; }`;
         
-        const observer = new MutationObserver(() => {
-            if (document.head && !document.getElementById('anti-night-mode')) {
-                document.head.appendChild(style);
+        const inject = () => {
+            const target = document.head || document.documentElement;
+            if (target && !document.getElementById('anti-night-mode')) {
+                target.appendChild(meta);
+                target.appendChild(style);
             }
-        });
+        };
 
-        observer.observe(document.documentElement, { childList: true, subtree: true });
-        if (document.head) { document.head.appendChild(style); }
+        new MutationObserver(inject).observe(document.documentElement, { childList: true, subtree: true });
+        inject();
     }
 })();
