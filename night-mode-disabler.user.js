@@ -7,21 +7,35 @@
 
 (function(d) {
     'use strict';
-    const hosts = ['google.com', 'youtube.com', 'github.com/*'];
-    if (!hosts.some(h => location.hostname.includes(h.replace('/*','')))) return;
+    const hosts = ['google.com', 'youtube.com', 'github.com'];
+    if (!hosts.some(h => location.hostname.includes(h))) return;
 
     const s = d.createElement('style');
     s.id = "a-n";
-    s.textContent = `html,body{filter:none!important;-webkit-filter:none!important;background:#fff!important;color:#000!important}img,video,iframe,canvas{filter:none!important;-webkit-filter:none!important;opacity:1!important}:root{color-scheme:light only!important}`;
+    s.textContent = `
+        html, body { 
+            filter: none !important; 
+            -webkit-filter: none !important; 
+            background-color: white !important; 
+            color: black !important; 
+        }
+        img, video, iframe, canvas { 
+            filter: none !important; 
+            -webkit-filter: none !important; 
+            opacity: 1 !important; 
+        }
+        :root { color-scheme: light only !important; }
+    `;
 
-    const i = () => {
+    const inject = () => {
         const h = d.head || d.documentElement;
         if (h && !d.getElementById(s.id)) {
-            const m = d.createElement('meta'); m.name="color-scheme"; m.content="light only";
+            const m = d.createElement('meta');
+            m.name = "color-scheme"; m.content = "light only";
             h.append(m, s);
         }
     };
 
-    new MutationObserver(i).observe(d.documentElement, {childList:1, subtree:1});
-    i();
+    new MutationObserver(inject).observe(d.documentElement, { childList: true, subtree: true });
+    inject();
 })(document);

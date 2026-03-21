@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name Night Mode Disabler (Safari)
+// @name Night Mode Disabler (Whitelist)
 // @version 1.0.2-S beta
 // @match *://*/*
 // @run-at document-start
@@ -7,11 +7,11 @@
 
 (function(d) {
     'use strict';
-    if (!['google.com','youtube.com','github.com/*'].some(h => location.hostname.includes(h.replace('/*','')))) return;
+    if (!['google.com','youtube.com','github.com'].some(h => location.hostname.includes(h))) return;
 
     const s = d.createElement('style');
     s.id = 'a-n';
-    s.textContent = 'html,body{filter:none!important;-webkit-filter:none!important;background:#fff!important;color:#000!important}img,video,iframe,canvas{filter:none!important;-webkit-filter:none!important;opacity:1!important}:root{color-scheme:light only!important}';
+    s.textContent = 'html,body{filter:none!important;-webkit-filter:none!important;background-color:white!important;color:black!important} img,video,iframe,canvas{filter:none!important;-webkit-filter:none!important;opacity:1!important} :root{color-scheme:light only!important}';
 
     (function l(){
         const h = d.head || d.documentElement;
