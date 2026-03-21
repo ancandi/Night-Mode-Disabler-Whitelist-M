@@ -1,28 +1,38 @@
 // ==UserScript==
-// @name Night Mode Disabler (M)
+// @name Night Mode Disabler (Whitelist)
 // @version 1.0.1
-// @match https://*.youtube.com/*
-// @match https://*.google.com/*
+// @match *://*/*
 // @run-at document-start
 // ==/UserScript==
 
-(function(d) {
+(function(d, w) {
     'use strict';
-    const s = d.createElement('style');
-    s.innerHTML = `html, body { background: #fff !important; color: #000 !important; color-scheme: light !important; } 
-                   [dark], .dark, [theme="dark"] { background: #fff !important; color: #000 !important; }`;
-    d.documentElement.appendChild(s);
+    const domains = ['google.com', 'youtube.com', 'github.com'];
+    if (!domains.some(h => location.hostname.includes(h))) return;
 
-    const check = () => {
-        const root = d.documentElement;
-        if (root.hasAttribute('dark') || root.classList.contains('dark')) {
-            root.removeAttribute('dark');
-            root.classList.remove('dark');
+    const s = d.createElement('style');
+    s.id = "anti-night";
+    s.textContent = `
+        :root, html, body { 
+            filter: none !important; 
+            -webkit-filter: none !important; 
+            background: #fff !important; 
+            color: #000 !important; 
+            color-scheme: light only !important; 
         }
-        root.style.setProperty('color-scheme', 'light', 'important');
+        img, video, iframe, canvas { 
+            filter: none !important; 
+            -webkit-filter: none !important; 
+            opacity: 1 !important; 
+        }
+    `;
+
+    const inject = () => {
+        if (d.head && !d.getElementById('anti-night')) d.head.append(s);
+        if (d.documentElement.hasAttribute('dark')) d.documentElement.removeAttribute('dark');
     };
 
-    const ob = new MutationObserver(check);
-    ob.observe(d.documentElement, { attributes: true, attributeFilter: ['class', 'dark', 'style'] });
-    d.addEventListener('DOMContentLoaded', check);
-})(document);
+    const mo = new MutationObserver(inject);
+    mo.observe(d.documentElement, { childList: true, subtree: true, attributes: true });
+    inject();
+})(document, window);
