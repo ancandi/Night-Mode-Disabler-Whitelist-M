@@ -27,17 +27,6 @@ Unlike global toggles, this script targets browser engines (Kiwi, Safari, Via) t
 
 <br>
 
-## ⚡ Technical Comparison
-| Feature | Generic YouTube (Mobile) | Generic Video Player | Overdrive Optimized |
-| :--- | :--- | :--- | :--- |
-| **Bitrate Cap** | Aggressive (App-Level) | Browser-Level Throttle | **Bypassed (Desktop Logic)** |
-| **Codec Priority** | Low-Bandwidth AVC1 | System Default | **High-Fidelity VP9/AV1** |
-| **Buffering** | Static/Predictive | Reactive (Late) | **rAF Real-time Monitoring** |
-| **Visual Clarity** | Muddy (Compression) | Standard | **Crisp (Zero-Artifact)** |
-| **Data Logic** | Throttled on Cellular | Unoptimized | **Adaptive Throughput** |
-
-<br>
-
 ## ⚙️ Other Utility Extensions
 - Looking for more? Try out other userscript utilities: [Evade - Link Bypasser](https://skipped.lol/)
 
